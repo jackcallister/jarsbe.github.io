@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Better object initialization
-categories:
 ---
 
 I'm very much used to doing this when buidling new Ruby class.
