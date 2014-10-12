@@ -1,0 +1,16 @@
+---
+layout: default
+title: Jack Callister - Code Journal
+active: journal
+---
+
+{% for post in site.posts %}
+<dl>
+  <dt>
+    {{ post.date | date: "%b %d, %Y" }}
+  </dt>
+  <dd>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+  </dd>
+</dl>
+{% endfor %}

@@ -1,0 +1,5 @@
+name: Jack Callister
+markdown: redcarpet
+highligher: true
+sass:
+  sass_dir: css

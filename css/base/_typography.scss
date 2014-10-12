@@ -1,0 +1,71 @@
+html {
+  font: 24px "calluna", serif;
+  color: $body-color;
+  line-height: 1.6;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 1em;
+}
+
+main p:last-child {
+  margin-bottom: 0;
+}
+
+strong { color: $body-strong-color; }
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+main a {
+  color: $body-link-color;
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 1em;
+}
+
+header h1 {
+  margin-bottom: 0.2em;
+
+  a {
+    color: $black;
+
+    &:hover {
+      color: $black;
+    }
+  }
+}
+
+header.post {
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(baseline);
+
+  h1 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: $black;
+  }
+}
+
+footer {
+
+  p {
+    color: $light-grey;
+  }
+}
+
+dl {
+  @include flexbox;
+  @include justify-content(space-between);
+  margin-bottom: 1em;
+}
