@@ -3,7 +3,7 @@ layout: post
 title: Better object initialization
 ---
 
-I'm very much used to doing this when buidling new Ruby class.
+I'm very much used to doing this when building a new Ruby class.
 
 {% highlight ruby %}
 class Honey
