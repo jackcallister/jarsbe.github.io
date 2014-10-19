@@ -1,0 +1,26 @@
+---
+layout: post
+title: SASS maps
+---
+
+SASS maps are neat. They are essentially a hash (key/value) data structure within SASS. It's useful for storing tidbits that are littered about frontend code, things like padding and margin values. Maps are the perfect tool for bringing consistency (and sanity) to a SASS codebase.
+
+{% highlight sass %}
+
+$margin: (
+  extra-small: 0.5em,
+  small: 1em,
+  default: 1.4em
+);
+
+{% endhighlight %}
+
+Extracting values is done through the map-get directive.
+
+{% highlight sass %}
+
+.container {
+  margin: map-get($margin, default);
+}
+
+{% endhighlight %}

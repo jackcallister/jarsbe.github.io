@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Better object initialization
+title: Better method calling
 ---
 
 I'm very much used to doing this when building a new Ruby class.

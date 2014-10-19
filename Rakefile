@@ -16,7 +16,6 @@ task :post do
 ---
 layout: post
 title: #{title}
-categories:
 ---
     EOS
   end

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Even better object initialization
+title: Even better method calling
 ---
 
 <p>With Ruby 2.0 there's now an even better way to initialize objects (or call methods) which uses keyword args. We can now do this:</p>

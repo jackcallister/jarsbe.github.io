@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Method delegation"
+title: Method delegation
 ---
 
 <p>Here's a sweet trick to avoid lengthy chaining in your method calls. The delegate method. Here's a simple apiary themed model setup.</p>
