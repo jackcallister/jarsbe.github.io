@@ -3,7 +3,6 @@ layout: post
 title: Building a test suite in React JS
 ---
 
- 
 I'm primarily a Rails developer but everyday I seem to be writing more and more front end JavaScript. While writing Ruby, tests are a given part of the process. This is not the case with JavaScript. I've always found that odd and I've also written enough JavaScript to intimately know how frustrating it can be. 
 
 It's a delight writing Ruby with a test suite so why is it acceptable that most JavaScript goes into production without automated tests? I believe difficulty and fear to be the culprit here. It's simply hard to get started; the tooling, workflow and even what to test are foreign. Rather than continue to deal with difficult JavaScript applications I decided to learn how to develop a test suite.
@@ -22,7 +21,7 @@ If you would like to follow along by writing code (I strongly suggest you do) yo
 
 Firstly we need something to test. The application we'll create has two components; an App component which contains a list of clickable items and a Menu component which contains a list of all selected items. The menu component also has a counter for the total number of selected items. An item can be selected by clicking on it. 
 
-If you are coding along replace the `component.js` file with the following code.
+If you are coding along replace the `main.js` file with the following code.
 
 {% highlight js %}
 var React = require('react'),
@@ -31,7 +30,7 @@ var React = require('react'),
 React.render(<App />, document.body);
 {% endhighlight %}
 
-Then create the app.js and menu.js files.
+Next remove the `component.js` file and create the `app.js` and `menu.js` files.
 
 {% highlight js %}
 var React = require('react'),
@@ -61,7 +60,7 @@ var App = React.createClass({
 
   render: function() {
     var listItems = this.props.items.map(function(item, i) {
-      return <li key={"item" + i} onClick={t.onSelectItem.bind(null, i)}>{item.title}</li>
+      return <li key={"item" + i} onClick={this.onSelectItem.bind(null, i)}>{item.title}</li>
     }.bind(this));
 
     return (
@@ -195,7 +194,7 @@ it('renders each item as a li', function() {
 });
 
 it('displays the items count', function(){
-  expect(count.getDOMNode().textContent).toEqual(2);
+  expect(count.getDOMNode().textContent).toEqual('2');
 });
 {% endhighlight %}
 
@@ -224,7 +223,7 @@ describe('App', function() {
 
   describe('clicking an item', function() {
     it('adds it to the selected items', function() {
-      TestUtils.Simulate.click(list[0]);
+      TestUtils.Simulate.click(items[0]);
       expect(AppElement.state.selectedItems.length).toEqual(1);
     });
   });
