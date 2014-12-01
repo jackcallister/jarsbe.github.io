@@ -36,7 +36,7 @@ Next remove the `component.js` file and create the `app.js` and `checkout.js` fi
 
 {% highlight js %}
 var React = require('react'),
-    Menu = require('./checkout');
+    Checkout = require('./checkout');
 
 var App = React.createClass({
 
@@ -148,16 +148,16 @@ Now the moment we've been waiting for, writing tests. Here's a spoiler - all the
 
 The simplest component is the `Checkout`. It accepts only one property `items` and generates a list from those `items`. The `Checkout` also calculates a total `items` count.
 
-To get this component tested create a `menu-test.js` file inside the `__tests__` directory. It also needs some boilerplate code like so.
+To get this component tested create a `checkout-test.js` file inside the `__tests__` directory. It also needs some boilerplate code like so.
 
 {% highlight js %}
-jest.dontMock('../components/menu.js');
+jest.dontMock('../components/checkout.js');
 
 var React = require('react/addons'),
-    Menu = require('../components/menu.js'),
+    Checkout = require('../components/checkout.js'),
     TestUtils = React.addons.TestUtils;
 
-describe('Menu', function() {
+describe('Checkout', function() {
 
   it('renders each item as a li', function() {
   
