@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Controlled inputs with react.js
+title: Controlled inputs with React JS
 ---
 
 I've been working with react.js alot lately. It's a library for developing user interfaces and I've found that the concepts behind it make developing interfaces quite simple. There are a few 'gotchas' though and one in particular had me stumped, controlled inputs. Imagine we have an input which react is rendering.

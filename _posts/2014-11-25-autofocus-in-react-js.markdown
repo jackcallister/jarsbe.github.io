@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Autofocus in React
+title: Autofocus in React JS
 ---
 
 I had a little dynamic form in a React component I was building. The form had a meal title with an ingredient field below it. One could click add ingredient and another ingredient field would be added to the form. I wanted to make sure that the newly added field would gain focus but was a little lost. 
