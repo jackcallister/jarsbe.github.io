@@ -60,10 +60,9 @@ var App = React.createClass({
   },
 
   render: function() {
-    var t = this;
     var listItems = this.props.items.map(function(item, i) {
       return <li key={"item" + i} onClick={t.onSelectItem.bind(null, i)}>{item.title}</li>
-    });
+    }.bind(this));
 
     return (
       <div> 
@@ -84,7 +83,6 @@ var React = require('react');
 var Menu = React.createClass({
 
   render: function() {
-    var t = this;
     var listItems = this.props.items.map(function(item, i) {
       return <li key={"selectedItem" + i}>{item.title}</li>
     });
@@ -217,7 +215,7 @@ describe('App', function() {
   var items = TestUtils.scryRenderedDOMComponentsWithTag(AppElement, 'li');
 
   it('has 3 default items', function() {
-    expect(list.length).toEqual(3);
+    expect(list.props.children.length).toEqual(3);
   });
 
   it('has no selected items', function() {
