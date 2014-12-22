@@ -7,9 +7,9 @@
 }
 
 p > code {
-  padding: 0.4em;
+  padding: 0.2em 0.4em;
   font-size: 0.8em;
   border-radius: 4px;
-  background: $light-grey; 
-  color: $dark-grey;
+  background: $light-grey;
+  color: rgba(0,0,0,0.9);
 }

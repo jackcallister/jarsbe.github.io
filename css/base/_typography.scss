@@ -4,16 +4,15 @@ html {
   line-height: 1.6;
 }
 
+ul {
+  list-style: none;
+  margin-bottom: 1em;
+}
+
 p {
   font-size: 1rem;
   margin-bottom: 1em;
 }
-
-main p:last-child {
-  margin-bottom: 0;
-}
-
-strong { color: $body-strong-color; }
 
 a {
   color: $link-color;
@@ -24,13 +23,44 @@ a {
   }
 }
 
-main a {
-  color: $body-link-color;
+strong {
+  color: $body-strong-color;
 }
 
-ul {
-  list-style: none;
-  margin-bottom: 1em;
+em {
+  opacity: 0.8;
+}
+
+main {
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  h1, h2, h3 {
+    margin: 2rem 0 1rem 0;
+    color: $black;
+  }
+
+  h1 {
+    font-size: 1.6em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+
+  a {
+    color: $body-link-color;
+  }
+
+  ul {
+    list-style: disc;
+    margin-left: 1em;
+  }
 }
 
 header h1 {
@@ -51,9 +81,7 @@ header.post {
   @include align-items(baseline);
 
   h1 {
-    font-size: 1.2rem;
     margin: 0;
-    color: $black;
   }
 }
 
