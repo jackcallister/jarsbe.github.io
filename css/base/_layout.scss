@@ -5,12 +5,11 @@ body {
   background-color: $white;
 }
 
-main {
-  margin-top: 1em;
-  padding-top: 1em;
-  border-top: 1px solid lighten($light-grey, 10%);
+header.main {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid lighten($light-grey, 10%);
 }
-
 header.post {
   margin-bottom: 1em;
   padding-bottom: 1em;
