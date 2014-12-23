@@ -3,47 +3,36 @@ layout: post
 title: React JS quick start guide
 ---
 
-*This article will give you a high level overview of how to build user interfaces in React JS. You will learn just enough to start building your own UI.*
+<div class="atom">
+  <div class="oval oval-forward"></div>
+  <div class="oval oval-backward"></div>
+  <div class="oval oval-horizontal"></div>
+  <div class="circle"></div>
+</div>
+
+>*This article will give you a high level overview of how to build user interfaces in React JS. You will learn just enough to get started.*
 
 ---
 
-## Introduction
+React JS has quite a small API. This makes it fun to use, easy to learn, and simple to understand. However, being simple does not equal familiar. There are some concepts to understand before you can get started. Let's cover each as succinctly as possible.
 
-Learning React JS is quite easy. The API is very small which makes it quick to learn, fun and simple. However, being simple does not equal familiar. There are some concepts to understand before you can get started. Let's cover each as succinctly as possible.
+**React elements** are JavaScript objects which represent HTML elements. They do not exist in the browser. React elements represent browser elements such as an `h1`, `div` or `section`.
 
-### React elements
+**Components** are developer created React elements. Think of concepts such as a `NavBar`, `LikeButton` or `ImageUploader`. They are cohesive parts of the user interface which contain both structure and functionality.
 
-React elements are JavaScript objects which represent HTML elements. They do not exist in the browser. React elements represent browser elements such as an `h1`, `div` or `section`.
+**JSX** is a technique for creating React elements and components. For example `<h1>Hello</h1>` is a React element written in JSX. The same React element can be written as JavaScript with `React.DOM.h1`. It's transformed into JavaScript before running.
 
-### Components
+**The Virtual DOM** is a JavaScript tree of React elements and components. It doesn't exist in the browser's DOM, only in JavaScript memory. The Virtual DOM can be rendered to the browser and any changes to it are automatically updated in browser's DOM.
 
-Components are developer created React elements. Think of concepts such as a `NavBar`, `LikeButton` or `ImageUploader`. They are cohesive parts of the user interface which contain both structure and functionality.
+With a vaugue understanding of these concepts you can now move on to using React JS. You will build a series of user interfaces, each adding more complexity and functionality on the previous.
 
-### JSX
+*This guide utilizes JS Bin, you should edit and explore the examples to get the most out of this guide.*
 
-JSX is a technique for creating React elements and components. For example `<h1>Hello</h1>` is a React element written in JSX. The same React element can be written as JavaScript with `React.DOM.h1`. It's transformed into JavaScript before running.
+The first order of business is rendering a virtual element (a React element or component). Since a virtual element only exists in JavaScript memory you must tell React to render it into the browser's DOM.
 
-### The Virtual DOM
+<a class="jsbin-embed" href="http://jsbin.com/yolahu/1/embed?js,output">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>
 
-The Virtual DOM is a JavaScript tree of React elements and components. It doesn't exist in the browser's DOM, only in JavaScript memory. The Virtual DOM can be rendered to the browser and any changes to it are automatically updated in browser's DOM.
-
----
-
-## Rendering
-
-*This guide utilizes JS Bin - feel free to edit and explore the examples as they are explained.*
-
-To build a user interace with React JS you need to learn how to render a virtual element (a React element or component).
-
-```
-React.render(<button>Like</button>, document.body);
-```
-
-<!-- <a class="jsbin-embed" href="http://jsbin.com/yolahu/1/embed?js,output">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script> -->
-
-The `render` function takes two arguments, a virtual element and a DOM node. The virtual element is rendered into the browser's DOM node.
-
----
+The `render` function accepts two arguments; a virtual element and a DOM node. The virtual element is then rendered into the browser's DOM node.
 
 ## Components
 

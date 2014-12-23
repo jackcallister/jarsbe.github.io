@@ -1,0 +1,43 @@
+.atom {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -50px;
+}
+
+.oval {
+  width: 200px;
+  height: 75px;
+  border: 2px solid #61DAFB;
+  border-radius: 50%;
+}
+
+.oval-forward {
+  transform: rotate(65deg);
+  -webkit-animation: wobble-forward 5s ease-in-out infinite;
+}
+
+.oval-backward {
+  margin-top: -75px;
+  transform: rotate(-65deg);
+  -webkit-animation: wobble-backward 8s ease-in-out infinite;
+}
+
+.oval-horizontal {
+  margin-top: -75px;
+  -webkit-animation: wobble-horizontal 2s ease-in-out infinite;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  background: #61DAFB;
+  border-radius: 40px;
+  position: absolute;
+  top: 19px;
+  left: 80px;
+  -webkit-animation: pulse 2s ease-in-out infinite;
+}
