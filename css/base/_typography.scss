@@ -79,8 +79,14 @@ footer p {
   color: $light-grey;
 }
 
-dl {
+dl.posts {
   @include flexbox;
   @include justify-content(space-between);
   margin-bottom: 1em;
+  dt {
+    display: none;
+    @media all and (min-width: 640px) {
+        display: inline;
+    }
+  }
 }

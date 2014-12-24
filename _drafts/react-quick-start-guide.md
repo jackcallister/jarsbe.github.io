@@ -1,6 +1,6 @@
 ---
 layout: post
-title: React JS quick start guide
+title: The React JS quick start guide
 ---
 
 <div class="atom">
@@ -24,19 +24,19 @@ React JS has quite a small API. This makes it fun to use, easy to learn, and sim
 
 **The Virtual DOM** is a JavaScript tree of React elements and components. It doesn't exist in the browser's DOM, only in JavaScript memory. The Virtual DOM can be rendered to the browser and any changes to it are automatically updated in browser's DOM.
 
-With a vaugue understanding of these concepts you can now move on to using React JS. You will build a series of user interfaces, each adding more complexity and functionality on the previous.
+With a vaugue understanding of these concepts you can now move on to using React JS. You will build a series of user interfaces, each adding more complexity and functionality on the previous. You are going to build an interactive image gallery where one can learn the names of dinosaurs. Example applications don't get better than that!
 
-*This guide utilizes JS Bin, you should edit and explore the examples to get the most out of this guide.*
+*This guide utilizes JS Bin to convey React concepts, it does not go into detail about getting your local environment set up. Visit the [React JS docs](http://facebook.github.io/react/docs/getting-started.html) or use this [boilerplate](https://github.com/jarsbe/react-webpack-boilerplate) to get started after this reading this guide.*
 
-The first order of business is rendering a virtual element (a React element or component). Since a virtual element only exists in JavaScript memory you must tell React to render it into the browser's DOM.
+The first order of business is rendering a virtual element (a React element or component). Since a virtual element only exists in JavaScript memory you must tell React JS to render it into the browser's DOM.
 
-<a class="jsbin-embed" href="http://jsbin.com/yolahu/1/embed?js,output">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>
+<a class="jsbin-embed" href="http://jsbin.com/fubariyuhe/3/embed?js,output">React JS quick start guide</a><script src="http://static.jsbin.com/js/embed.js"></script>
 
 The `render` function accepts two arguments; a virtual element and a DOM node. The virtual element is then rendered into the browser's DOM node.
 
-## Components
+Try replacing the `img` with any another React element such as an H1. Remember you're creating a virtual element in JSX and rendering it to the page. This could be achieved with just HTML but you will see why React uses a virtual DOM as you move onto building and using components.
 
-You now need to learn how to create and render a component.
+Next, you need create and render a component. Recall that a component is essentially a developer created React element. This allows you to embue the component with functionality beyond that of regular elements.
 
 ```
 var LikeButton = React.createClass({
