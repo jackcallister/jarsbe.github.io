@@ -1,7 +1,8 @@
 ---
 layout: post
-title: The React Quick Start Guide
+title: React quick start guide
 ---
+
 
 <div class="atom">
   <div class="oval oval-forward"></div>
