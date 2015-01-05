@@ -214,7 +214,7 @@ var PhotoGallery = React.createClass({
     var data = this.getDataFromServer();
 
     var photos = data.map(function(photo) {
-      return <Photo imageURL={photo.url} caption={photo.caption} />
+      return <Photo src={photo.url} caption={photo.caption} />
     });
 
     return (
