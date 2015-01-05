@@ -176,6 +176,8 @@ var Photo = React.createClass({
   },
 
   render: function() {
+    var buttonClass = this.state.liked ? 'active' : '';
+
     return (
       <div className='photo'>
         <img src={this.props.src} />
