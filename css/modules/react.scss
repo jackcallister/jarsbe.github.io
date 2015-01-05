@@ -16,19 +16,22 @@
 }
 
 .oval-forward {
+  -moz-transform: rotate(65deg);
+  -ms-transform: rotate(65deg);
+  -webkit-transform: rotate(65deg);
   transform: rotate(65deg);
-  -webkit-animation: wobble-forward 5s ease-in-out infinite;
 }
 
 .oval-backward {
   margin-top: -75px;
+  -moz-transform: rotate(-65deg);
+  -ms-transform: rotate(-65deg);
+  -webkit-transform: rotate(-65deg);
   transform: rotate(-65deg);
-  -webkit-animation: wobble-backward 8s ease-in-out infinite;
 }
 
 .oval-horizontal {
   margin-top: -75px;
-  -webkit-animation: wobble-horizontal 2s ease-in-out infinite;
 }
 
 .circle {
@@ -39,5 +42,8 @@
   position: absolute;
   top: 19px;
   left: 80px;
+  -moz-animation: pulse 2s ease-in-out infinite;
+  -ms-animation: pulse 2s ease-in-out infinite;
   -webkit-animation: pulse 2s ease-in-out infinite;
+  animation: pulse 2s ease-in-out infinite;
 }
