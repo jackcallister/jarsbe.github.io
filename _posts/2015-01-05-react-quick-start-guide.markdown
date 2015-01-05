@@ -1,6 +1,6 @@
 ---
 layout: post
-title: React quick start guide
+title: The React Quick Start Guide
 ---
 
 
@@ -11,7 +11,7 @@ title: React quick start guide
   <div class="circle"></div>
 </div>
 
->*This article will give you a quick overview of how to build user interfaces in React JS. There's just enough to get yourself started and nothing more. Code along with this [starter kit](https://github.com/jarsbe/react-quick-start-guide) (instructions in the repo) or just read along.*
+>*This article will give you a quick overview of how to build user interfaces in React JS. There's just enough to get yourself started and nothing more. Code along with this [starter kit](https://github.com/jarsbe/react-starter-kit) (instructions in the repo) or just read along.*
 
 ---
 
