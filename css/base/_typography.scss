@@ -79,6 +79,10 @@ footer p {
   color: $light-grey;
 }
 
+footer a {
+  color: $blue;
+}
+
 dl.posts {
   @include flexbox;
   @include justify-content(space-between);
