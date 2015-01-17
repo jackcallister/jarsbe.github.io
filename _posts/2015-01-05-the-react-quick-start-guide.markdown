@@ -238,7 +238,7 @@ The data is looped over and will generates 3 `Photo` components which are insert
 
 ## Conclusion
 
-This should be enough to get started building user interfaces with React. The [React docs](http://facebook.github.io/react/docs/getting-started.html) covers everything in detail. I highly recommend reading it.
+This should be enough to get started building user interfaces with React. The [React docs](http://facebook.github.io/react/docs/getting-started.html) cover everything in detail. I highly recommend reading it.
 
 Also this guide doesn't go into detail about your local environment setup. The documentation should, or alternatively, look at my [boilerplate](https://github.com/jarsbe/react-webpack-boilerplate) for a simple solution.
 
