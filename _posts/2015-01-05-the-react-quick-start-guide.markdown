@@ -17,7 +17,7 @@ title: The React Quick Start Guide
 
 ## Concepts
 
-React has quite a small API. This makes it fun to use, easy to learn, and simple to understand. However, being simple does not mean it's familiar. There are a few concepts to cover before getting started. Let's look at each in turn.
+React hs quite a small API. This makes it fun to use, easy to learn, and simple to understand. However, being simple does not mean it's familiar. There are a few concepts to cover before getting started. Let's look at each in turn.
 
 **React elements** are JavaScript objects which represent HTML elements. They do not exist in the browser. They represent browser elements such as an `h1`, `div` or `section`.
 
