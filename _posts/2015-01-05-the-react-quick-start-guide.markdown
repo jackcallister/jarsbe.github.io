@@ -38,6 +38,7 @@ The first order of business is rendering a virtual element (a React element or c
 ``` js
 React.render(<img src='http://tinyurl.com/lkevsb9' />, document.body);
 ```
+<a href="http://jsbin.com/detime/6/edit">View JSBin</a>
 
 The `render` function accepts two arguments; a virtual element and a real DOM node. React takes the virtual element and inserts it into the given DOM node. The image is now visible in the browser.
 
@@ -57,6 +58,7 @@ var Photo = React.createClass({
 
 React.render(<Photo />, document.body);
 ```
+<a href="http://jsbin.com/detime/7/edit">View JSBin</a>
 
 The `createClass` function accepts an object which implements a `render` function.
 
@@ -85,6 +87,7 @@ var Photo = React.createClass({
 
 React.render(<Photo imageURL='http://tinyurl.com/lkevsb9' caption='New York!' />, document.body);
 ```
+<a href="http://jsbin.com/detime/8/edit">View JSBin</a>
 
 Inside the React `render` function, two props are passed to the `Photo` component; `imageURL` and `caption`.
 
@@ -133,6 +136,7 @@ var Photo = React.createClass({
 
 React.render(<Photo src='http://tinyurl.com/lkevsb9' caption='New York!'/>, document.body);
 ```
+<a href="http://jsbin.com/detime/4/edit">View JSBin</a>
 
 Having state in a component introduces a bit more complexity.
 
@@ -227,6 +231,8 @@ var PhotoGallery = React.createClass({
 
 React.render(<PhotoGallery />, document.body);
 ```
+
+<a href="http://jsbin.com/detime/5/edit">View JSBin</a>
 
 The `Photo` component is exactly the same as before.
 
