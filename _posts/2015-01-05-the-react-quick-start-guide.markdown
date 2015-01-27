@@ -248,4 +248,4 @@ This should be enough to get started building user interfaces with React. The [R
 
 Also this guide doesn't go into detail about your local environment setup. The documentation should, or alternatively, look at my [boilerplate](https://github.com/jarsbe/react-webpack-boilerplate) for a simple solution.
 
-If I've made a mistake or something's not working for you, ping me on [twitter](http://twitter.com/jarsbe).
+If I've made a mistake or something's not working for you, ping me on [twitter](http://twitter.com/jarsbe) or better yet make a [pull request](https://github.com/jarsbe/jarsbe.github.io/blob/master/_posts/2015-01-05-the-react-quick-start-guide.markdown).
