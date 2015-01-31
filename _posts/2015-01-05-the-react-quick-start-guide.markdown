@@ -85,7 +85,7 @@ var Photo = React.createClass({
   }
 });
 
-React.render(<Photo imageURL='http://tinyurl.com/lkevsb9' caption='New York!' />, document.body);
+React.render(<Photo imageURL='http://tinyurl.com/lkevsb9' caption='Hong Kong!' />, document.body);
 ```
 <a target="_blank" href="http://jsbin.com/detime/8/edit">View JSBin</a>
 
@@ -134,7 +134,7 @@ var Photo = React.createClass({
   }
 });
 
-React.render(<Photo src='http://tinyurl.com/lkevsb9' caption='New York!'/>, document.body);
+React.render(<Photo src='http://tinyurl.com/lkevsb9' caption='Hong Kong!'/>, document.body);
 ```
 <a target="_blank" href="http://jsbin.com/detime/4/edit">View JSBin</a>
 
@@ -202,7 +202,7 @@ var PhotoGallery = React.createClass({
   getDataFromServer: function() {
     return [{
       url: 'http://tinyurl.com/lkevsb9',
-      caption: 'New York!'
+      caption: 'Hong Kong!'
     },
     {
       url: 'http://tinyurl.com/mxkwh56',
