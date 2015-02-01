@@ -81,7 +81,7 @@ var Photo = React.createClass({
         <img src={this.props.imageURL} />
         <span>{this.props.caption}</span>
       </div>
-    )
+    );
   }
 });
 
@@ -113,7 +113,7 @@ var Photo = React.createClass({
   getInitialState: function() {
     return {
       liked: false
-    }
+    };
   },
 
   render: function() {
@@ -130,7 +130,7 @@ var Photo = React.createClass({
           <span>{this.props.caption}</span>
         </div>
       </div>
-    )
+    );
   }
 });
 
@@ -176,7 +176,7 @@ var Photo = React.createClass({
   getInitialState: function() {
     return {
       liked: false
-    }
+    };
   },
 
   render: function() {
@@ -193,31 +193,15 @@ var Photo = React.createClass({
           <span>{this.props.caption}</span>
         </div>
       </div>
-    )
+    );
   }
 });
 
 var PhotoGallery = React.createClass({
 
-  getDataFromServer: function() {
-    return [{
-      url: 'http://tinyurl.com/lkevsb9',
-      caption: 'Hong Kong!'
-    },
-    {
-      url: 'http://tinyurl.com/mxkwh56',
-      caption: 'Cows'
-    },
-    {
-      url: 'http://tinyurl.com/nc7jv28',
-      caption: 'Scooters'
-    }];
-  },
-
   render: function() {
-    var data = this.getDataFromServer();
 
-    var photos = data.map(function(photo) {
+    var photos = this.props.photos.map(function(photo) {
       return <Photo src={photo.url} caption={photo.caption} />
     });
 
@@ -225,20 +209,33 @@ var PhotoGallery = React.createClass({
       <div className='photo-gallery'>
         {photos}
       </div>
-    )
+    );
   }
 });
 
-React.render(<PhotoGallery />, document.body);
+var data = [
+  {
+    url: 'http://tinyurl.com/lkevsb9',
+    caption: 'Hong Kong!'
+  },
+  {
+    url: 'http://tinyurl.com/mxkwh56',
+    caption: 'Cows'
+  },
+  {
+    url: 'http://tinyurl.com/nc7jv28',
+    caption: 'Scooters'
+  }
+];
+
+React.render(<PhotoGallery photos={data} />, document.body);
 ```
 
-<a target="_blank" href="http://jsbin.com/detime/5/edit">View JSBin</a>
+<a target="_blank" href="http://jsbin.com/detime/10/edit">View JSBin</a>
 
 The `Photo` component is exactly the same as before.
 
-There's a new `PhotoGallery` component which generates `Photo` components. In this case there's some fake server data which returns an array of 3 objects, each with a `url` and `caption`.
-
-The data is looped over and will generates 3 `Photo` components which are inserted into the return value of the component's `render` function.
+There's a new `PhotoGallery` component which generates 3 `Photo` components from some fake data passed in as a `prop`.
 
 ---
 
@@ -246,6 +243,8 @@ The data is looped over and will generates 3 `Photo` components which are insert
 
 This should be enough to get started building user interfaces with React. The [React docs](http://facebook.github.io/react/docs/getting-started.html) cover everything in detail. I highly recommend reading it.
 
-Also this guide doesn't go into detail about your local environment setup. The documentation should, or alternatively, look at my [boilerplate](https://github.com/jarsbe/react-webpack-boilerplate) for a simple solution.
+There are some great videos worth watching too. Pete Hunt talks about [re-thinking web application architecture](https://www.youtube.com/watch?v=x7cQ3mrcKaY) with React and Tom Occhino introduces [React Native](https://www.youtube.com/watch?v=KVZ-P-ZI6W4) for building native mobile applications with React (WIP).
 
-If I've made a mistake or something's not working for you, ping me on [twitter](http://twitter.com/jarsbe) or better yet make a [pull request](https://github.com/jarsbe/jarsbe.github.io/blob/master/_posts/2015-01-05-the-react-quick-start-guide.markdown).
+This guide doesn't go into detail about your local environment setup. The official documentation should help, or alternatively, look at my [boilerplate](https://github.com/jarsbe/react-webpack-boilerplate) for a simple solution.
+
+If I've made a mistake or something's not working for you, ping me on [twitter](http://twitter.com/jarsbe) or better yet make a [pull request](https://github.com/jarsbe/jarsbe.github.io/blob/master/_posts/2015-01-05-the-react-quick-start-guide.markdown). Feel free to email me with questions - I'm happy to help.
