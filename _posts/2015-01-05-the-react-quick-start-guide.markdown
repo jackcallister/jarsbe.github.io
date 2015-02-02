@@ -136,7 +136,7 @@ var Photo = React.createClass({
 
 React.render(<Photo src='http://tinyurl.com/lkevsb9' caption='Hong Kong!'/>, document.body);
 ```
-<a target="_blank" href="http://jsbin.com/detime/4/edit">View JSBin</a>
+<a target="_blank" href="http://jsbin.com/detime/3/edit">View JSBin</a>
 
 Having state in a component introduces a bit more complexity.
 
