@@ -8,9 +8,9 @@ body {
 article {
   margin-top: 4rem;
   margin-bottom: 1rem;
-  border-bottom: 1px solid $light-grey;
 }
 
 footer {
-  margin-top: 2rem;
+  border-top: 1px solid $light-grey;
+  margin-top: 4rem;
 }
