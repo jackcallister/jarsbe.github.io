@@ -3,63 +3,63 @@ layout: post
 title: The Flux Quick Start Guide
 ---
 
->*If you're unfamiliar with React JS read [The React Quick Start Guide](http://www.jackcallister.com/2015/01/05/the-react-quick-start-guide.html) before diving into Flux.*
+>*This article will give you an overview of how to build JavaScript applications with the Flux pattern, particularly in conjunction with React JS. This won't be a fully fledged application. There's a minimal amount of material to get your familiar with the core Flux concepts. It can be read as is or followed along with the [starter kit](https://github.com/jarsbe/flux-starter-kit).*
 
->*This article will give you an overview of how to build JavaScript applications with the Flux pattern, particularly in conjunction with React JS. It can be read as is or followed along with the [starter kit](https://github.com/jarsbe/flux-starter-kit).*
+>*If you're unfamiliar with React JS you should read [The React Quick Start Guide](http://www.jackcallister.com/2015/01/05/the-react-quick-start-guide.html) first. You'll need a basic understanding of React and preferably some experience building your own components.*
 
-# Primary Concepts
+# Concepts
 
-Flux contains four primary concepts, three if you discount **Actions**.
+Flux simplifies data management within your application. It's unfamiliar at first but quickly becomes simple to understand and reason about.
+
+Flux has three primary concepts; **Views**, **Stores** and the **Dispatcher**. There's also **Actions** which are objects sent throughout the **Views**, **Stores** and **Dispatcher**.
+
+Take your time and read the following definitions twice or even three times. Follow the tutorial, then read the definitions again and you'll see how the concepts fit together.
 
 ## Views
 
-**Views** are React components. They're responsible for rendering interfaces and handling user events. Their data is obtained from **Stores**.
+**Views** are React components. They're responsible for rendering interfaces and handling user events. Their data is obtained from the **Stores**.
 
 ## Stores
 
-**Stores** are the data management layer. They notify the **Views** of any change in data.
-
-## Actions
-
-**Actions** are objects which contain data and an **Action Type**. Server responses or user events create **Actions** which are passed to the **Dispatcher** and or **Web Utils**.
+**Stores** manage application data. A single **Store** manages data for a single domain. When a **Store's** data changes it notifies **Views** using that data.
 
 ## Dispatcher
 
-The application **Dispatcher** receives **Actions** which it passes to all **Stores**.
+The application **Dispatcher** receives **Actions**, created from user events or server events, which it passes to all **Stores**.
 
-**Stores** register interest in particular **Actions Types** and when these arrive from the **Dispatcher** the **Store** will modify it's data as needed.
+Each **Store** registers a function with the **Dispatcher**. This function indicates which **Actions Types** the **Store** is interested in.
 
-# Secondary Concepts
+When an **Action Type** is dispatched interested **Stores** will modify their data as needed.
 
-There's also some secondary concepts which are very useful to know, especially when dissecting the official examples.
+## Actions
 
-## Web Utils
-
-Web Utilities, or **Web Utils** for short, communicate with external API's.
-
-# Constants
-
-**Constants** keep common values contained in a single place. Usually this is done with a [key mirror](https://www.npmjs.com/package/keymirror).
+**Actions** are objects which contain data (from user or server events) and an **Action Type**. **Actions** are passed to the **Dispatcher** and or **Web Utils**.
 
 ## Action Types
 
-**Action Types** are a list of the **Actions** which can be created. They are kept as an object of **Constants** for easy accessibility and consistency.
+**Action Types** are a list of the **Actions** which can be created. They are usually kept as an object of **Constants** for accessibility and consistency.
 
 ## Actions Creators
 
-**Action Creators** are objects which build **Actions** and pass these to the **Dispatcher**. As a side-effect they act as an internal **Dispatcher** & **Web Utils** API.
+**Action Creators** are objects which build **Actions** and pass these to the **Dispatcher** and or **Web Utils**. As a side-effect they act as a **Dispatcher** & **Web Utils** API.
+
+## Web Utils
+
+Web Utilities, or **Web Utils** for short, are objects containing functions to communicate with external API's.
+
+# Constants
+
+**Constants** keep common values contained in a single place.  This is usually done with a [key mirror](https://www.npmjs.com/package/keymirror) object.
 
 ---
 
-Now we can begin building an example application with Flux.
+With a brief understanding of these concepts we can now implement the Flux pattern. I highly suggest following along with the the starter kit and typing out each line to achieve the best understanding. We'll build a simple commenting application touching on each primary Flux concept.
 
-I highly suggest following along with the the starter kit and typing out each line to achieve the best understanding.
-
-We'll build a very simple commenting application which will touch on each primary Flux concept. It's extremely rudimentary but the point is to convey the Flux pattern, not build a complex application.
+*Disclaimer: **Constants** and **Web Utils** are omitted from this guide and the **Dispatcher** has been simplified. Doing so makes the cognitive barrier to understanding Flux much lower. Once you've grokked the Flux pattern reading the [official examples](link) will fill in those aspects.*
 
 ## Views
 
-Well begin with **Views**. After getting the starter kit setup (instructions are on the repository) you'll find the following `app.js` file in the `src` directory.
+After getting the [starter kit](https://github.com/jarsbe/flux-starter-kit) setup (instructions are in the repository) you'll find the following `app.js` file in the `src` directory.
 
 ```
 var React = require('react');
@@ -82,7 +82,7 @@ var App = React.createClass({
 React.render(<App />, document.getElementById('app'));
 ```
 
-This renders our **Views** to the DOM. We'll ignore the `Comments` **View** and focus on the `CommentForm`.
+This renders our **Views** to the DOM. We'll ignore the `Comments` **View** and focus on implementing the `CommentForm`.
 
 ```
 var React = require('react');
@@ -117,11 +117,11 @@ module.exports = CommentForm;
 
 This `CommentForm` **View** requires a `CommentActionCreators` object which is (as the name suggests) an **Action Creator**.
 
-On form submission `createComment` is called on the **Action Creator**. It's passed a `comment` object which simply contains the form text. Let's implement the **Action Creator**.
+On form submission `createComment` is called on the **Action Creator**. It's passed a `comment` object which contains the form text. Let's build the **Action Creator**.
 
 ## Actions
 
-Under the `actions` directory create and implement the following `comment-actions-creator.js` file.
+Under the `actions` directory create and implement the following `comment-action-creators.js` file.
 
 ```
 var AppDispatcher = require('../dispatcher/app-dispatcher');
@@ -139,7 +139,7 @@ module.exports = {
 
 The `createComment` function calls `handleAction` on the **Dispatcher** which is passed an **Action** containing an **Action Type** and the comment data.
 
-Let's implement the **Dispatcher**.
+Let's build the **Dispatcher**.
 
 ## Dispatcher
 
@@ -161,13 +161,13 @@ var AppDispatcher = assign(new Dispatcher(), {
 module.exports = AppDispatcher;
 ```
 
-Firstly the a Dispatcher function from the Flux library is required.
+Firstly a Dispatcher function is required from the Flux library.
 
-Next a Dispatcher instance is merged with an object that implements the `handleAction` function. *This use the `assign` [helper](https://github.com/sindresorhus/object-assign).*
+Next a Dispatcher instance is merged with an object that implements the `handleAction` function. *This uses an `assign` [helper function](https://github.com/sindresorhus/object-assign) which merges objects.*
 
-The `handleAction` function accepts an **Action** object and  calls `dispatch` passing in the supplied **Action**. *The dispatch function is supplied via the `new Dispatcher()` object.*
+The `handleAction` function accepts an **Action** object and  calls `dispatch` passing in the supplied **Action**. *The dispatch function is implemented via the `new Dispatcher()` object.*
 
-The `dispatch` function sends the 'payload' object to nothing at this point. Objects need to register their interest with the **Dispatcher** to access the payload. Those objects are **Stores**.
+The `dispatch` function sends it's argument to nothing at this point. Objects need to register interest with the **Dispatcher** first. Those objects are **Stores**.
 
 ## Stores + Views
 
@@ -217,17 +217,17 @@ AppDispatcher.register(function(payload) {
 module.exports = CommentStore;
 ```
 
-There are two segments of code in this file. The creation of the **Store** and registering with the **Dispatcher**.
+There are two segments of code in this file. **Store** creation and **Store** registration with the **Dispatcher**.
 
-The **Store** is created by merging the `EventEmitter.prototype` object and a custom object.
+The **Store** is created by merging the `EventEmitter.prototype` object and a custom object. The `EventEmitter.prototype` imbues the **Store** with the ability to subscribe to and emit events.
 
-The `EventEmitter.prototype` imbues the **Store** with the ability to subscribe to and emit events.
+The custom object defines public functions for subscribing and unsubscribing to `change` events. It also contains a `getAll` function which returns the `comments` data.
 
-The custom object gives the **Store** public functions for subscribing and unsubscribing to `change` events. It also exposes a `getAll` function which returns the private `comments` data.
+Next, the **Store** registers a function with the **Dispatcher**. When the **Dispatcher** calls `dispatch` it passes it's argument to each registered function.
 
-In the next section the **Store** registers a function with the **Dispatcher**. When the **Dispatcher** calls `dispatch` it will call each registered function, passing the given payload.
+In this case, when an **Action** is dispatched with an **Action Type** equal to `CREATE_COMMENT`, this **Store** will push the comment data into it's comment array and invoke the `emitChange` function.
 
-In the `CommentStore`, when an **Action** has an **Action Type** equal to `CREATE_COMMENT` the **Store** will push the **Action's** comment data into it's comment array. Next the **Store's** `emitChange` function is invoked.
+---
 
 Now we need a component to display our **Store's** comments and subscribe to changes.
 
@@ -282,20 +282,21 @@ var Comments = React.createClass({
 module.exports = Comments;
 ```
 
-Most of this is familiar React code with the addition of requiring the `CommentStore`. There's also a `getStateFromStores` function which retrieves the comment data from the store and wraps this in an object. This is the state used within the component.
+Most of this is familiar React code with the addition of requiring the `CommentStore` and a few added extras.
 
-Within `getInitialState` the component calls `getStateFromStores` which retrieves the comments and sets them as the components state.
+Firstly the `getStateFromStores` function retrieves comment data from the **Store** and returns this as an object. This is set as the initial component state within `getInitialState`.
 
-Within `componentDidMount` a component function is registered with the **Store's** `addChangeListener`. This function `onChange` calls `getStateFromStores` to update the component's state.
+Next inside `componentDidMount` the component's `onChange` function is passed to the **Store's** `addChangeListener` function. When the **Store** now emits a `change` event the `onChange` function will fire which sets the component's state as the new **Store** data.
 
-Finally within `componentWillUnmount` the change listener is removed from the **Store**.
+Finally `componentWillUnmount` removes the `onChange` function from **Store**.
 
-# All together now
+# Conclusion
 
-With all of these pieces in place this is the essence of the Flux pattern. Submitting a comment creates an Action which is passed to the Dispatcher. The Dispatcher sends that payload to all registered callbacks. The Store's callback is triggered, updating it's data and emitting a change event trigger all registered callbacks to fire. The comment lists onChange function is invoked which updates the components state. This causes a re-render and the UI is updated with the correct data.
+We've now touched on every core concept of the Flux pattern; **Views**, **Stores** and the **Dispatcher**.
 
-# In practice
+- When a user submits a comment an **Action Creator** builds an **Action** and sends this to the **Dispatcher**.
+- The **Dispatcher** sends this **Action** to the registered **Store** callback.
+- The **Store** updates it's comments data and emits a change event.
+- The **View** updates it's state from the **Store** and re-renders with new data.
 
-This is a contrived and small example, useful only for expressing the parts of the Flux pattern. However try adding another component which displays the number of comments in the list. It will subscribe to the Stores data exactly like the Comment List.
-
-Using **Constants** is omitted as are **Web Utils**. This isn't necessary for a demo. Instead try that on your own after having a look at the Flux Chat demo. It will make much more sense after completing this tutorial.
+This is the essence of Flux. Create **Actions** which are sent to the **Dispatcher** which are sent to all **Stores**. The **Stores** update their data and the **Views** update their state.
