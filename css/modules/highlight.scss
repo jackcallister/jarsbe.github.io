@@ -1,10 +1,5 @@
-.highlight {
-  transition: 1s margin;
-}
-
-
 @media all and (min-width: 1024px) {
-  .highlight:hover {
+  .highlight {
     margin-left: -8em;
     margin-right: -8em;
   }
