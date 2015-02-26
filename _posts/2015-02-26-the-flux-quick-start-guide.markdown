@@ -126,6 +126,8 @@ module.exports = {
 
 The `createComment` function creates an Action which contains an Action Type (`CREATE_COMMENT`) and comment data. It calls `handleAction` on the Dispatcher and passes along the Action.
 
+Building this Action Creator give us a centralised place for sending comment related Actions to the Dispatcher.
+
 Let's build the Dispatcher to accept Actions and send them to all Stores.
 
 ---
