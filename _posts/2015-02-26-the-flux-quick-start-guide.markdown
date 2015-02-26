@@ -23,7 +23,7 @@ Take your time reading the following definitions then follow the tutorial. Read 
 
 **Views** are React components. They're responsible for rendering interfaces and handling user events. Their data is obtained from the Stores.
 
-**Stores** manage data. A single Store manages data for a single domain. When a Store changes it's data it notifies the Views.
+**Stores** manage data. A single Store manages data for a single domain. When a Store changes its data, it notifies the Views.
 
 The **Dispatcher** receives new data and passes it to the Stores. Stores update their data (when applicable) and inform the Views.
 
@@ -35,7 +35,7 @@ The **Dispatcher** receives new data and passes it to the Stores. Stores update 
 
 **Action Creators** are the objects which build Actions and send them to the Dispatcher or Web Utils.
 
-**Web Utils** are objects for communicating with external API's. For example an Action Creator may invoke requesting new data from the server.
+**Web Utils** are objects for communicating with external API's. For example, an Action Creator may invoke requesting new data from the server.
 
 ---
 
@@ -102,7 +102,7 @@ module.exports = CommentForm;
 
 The `CommentForm` requires a `CommentActionCreators` object which is (as the name suggests) an Action Creator.
 
-On form submission `createComment` is called and passed a `comment` object which contains the form text. Let's build this Action Creator.
+On form submission the `createComment` function is passed a `comment` object constructed from the textarea's value. Let's build this Action Creator to accept the comment.
 
 ---
 
@@ -132,7 +132,7 @@ Let's build the Dispatcher to accept Actions and send them to all Stores.
 
 ## Dispatcher
 
-Under the `dispatcher` directory create and implement the following `app-dispatcher.js` file.
+Under the `dispatcher` directory, create and implement the following `app-dispatcher.js` file.
 
 ``` js
 var Dispatcher = require('flux').Dispatcher;
@@ -154,13 +154,13 @@ A new Dispatcher instance (from the Flux library) is merged with an object that 
 
 The `handleAction` function calls `dispatch` passing in the supplied Action. *The* `dispatch`* function is implemented via the* `new Dispatcher()` *object.*
 
-The `dispatch` function sends it's argument to nothing at this point. Stores need to register interest with the Dispatcher first.
+The `dispatch` function sends its argument to nothing at this point. Stores need to register interest with the Dispatcher first.
 
 ---
 
 ## Stores
 
-Under the `stores` directory create and implement the following `comment-store.js` file.
+Under the `stores` directory, create and implement the following `comment-store.js` file.
 
 ``` js
 var AppDispatcher = require('../dispatcher/app-dispatcher');
@@ -212,9 +212,9 @@ The Store is created by merging an `EventEmitter.prototype` object and a custom 
 
 The custom object defines public functions for subscribing and unsubscribing to `change` events. It also defines a `getAll` function which returns the `comments` data.
 
-Next, the Store registers a function with the Dispatcher. When the Dispatcher calls `dispatch` it passes it's argument to each registered function.
+Next, the Store registers a function with the Dispatcher. When the Dispatcher calls `dispatch` it passes its argument to each registered function.
 
-In this instance, when an Action is dispatched with an Action Type of `CREATE_COMMENT`, the `CommentStore` will push the data into it's comment array and invoke the `emitChange` function.
+In this instance, when an Action is dispatched with an Action Type of `CREATE_COMMENT`, the `CommentStore` will push the data into its comment array and invoke the `emitChange` function.
 
 ---
 
@@ -285,14 +285,14 @@ Lastly `componentWillUnmount` removes the `onChange` function from Store.
 
 We now have a working Flux application and have touched on every core concept of the pattern; **Views**, **Stores** and the **Dispatcher**.
 
-- When a user submits a comment the View invokes an Action Creator.
+- When a user submits a comment, the View invokes an Action Creator.
 - The Action Creator builds an Action and passes this to the Dispatcher.
-- The Dispatcher sends the Action to the registered Store callback
-- The Store updates it's comments data and emits a change event.
-- The View updates it's state from the Store and re-renders.
+- The Dispatcher sends the Action to the registered Store callback.
+- The Store updates its comment's data and emits a change event.
+- The View updates its state from the Store and re-renders.
 
 This is the essence of Flux. The Dispatcher sends data to all Stores which update and notify their Views.
 
 At this point Flux will still feel a little unfamiliar. I highly reccommend reading the [official documentation](https://facebook.github.io/flux/) and watching the [intro to Flux talk](https://www.youtube.com/watch?v=nYkdrAPrdcw&list=PLb0IAmt7-GS188xDYE-u1ShQmFFGbrk0v) to get a deeper understanding of the Flux architecture and to further ingrain the pattern. I also suggest now reading the [official examples](https://github.com/facebook/flux/tree/master/examples).
 
-If I've made a mistake or it doesn't quite click for you, ping me on [twitter](http://twitter.com/jarsbe) or better yet make a [pull request](https://github.com/jarsbe/jarsbe.github.io). Also feel free to make suggestions for improving this guide.
+If I've made a mistake or it doesn't quite click for you, ping me on [twitter](http://twitter.com/jarsbe) or better yet make a [pull request](https://github.com/jarsbe/jarsbe.github.io). Also, feel free to make suggestions for improving this guide.
