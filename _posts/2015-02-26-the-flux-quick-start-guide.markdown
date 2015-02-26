@@ -15,9 +15,7 @@ title: The Flux Quick Start Guide
 
 ## Concepts
 
-Flux is an architectural pattern for implementing user interfaces. It makes managing your application's data simple and easy to follow.
-
-Flux has three primary concepts; **Views**, **Stores** and the **Dispatcher**. There are also several secondary concepts; **Actions**, **Action Types**, **Action Creators** and **Web Utils**.
+Flux is an architectural pattern for implementing user interfaces. It has three primary concepts; **Views**, **Stores** and the **Dispatcher**. There are also several secondary concepts; **Actions**, **Action Types**, **Action Creators** and **Web Utils**.
 
 Take your time reading the following definitions then follow the tutorial. Read the definitions again and you'll be able to start using the Flux pattern in your own applications.
 
