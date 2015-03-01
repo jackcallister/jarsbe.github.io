@@ -1,3 +1,11 @@
 {
-  "book": "Hello"
+  "books":[
+    {
+      "title": "Test",
+      "url": "",
+      "cover_url": "",
+      "rating": 10,
+      "description": "This is a description"
+    }
+  ]
 }
