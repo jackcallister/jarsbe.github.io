@@ -116,19 +116,21 @@ var AppDispatcher = require('../dispatcher/app-dispatcher');
 module.exports = {
 
   createComment: function(comment) {
-    AppDispatcher.handleAction({
-      type: "CREATE_COMMENT",
+    var action = {
+      actionType: "CREATE_COMMENT",
       comment: comment
-    });
+    };
+
+    AppDispatcher.dispatch(action);
   }
 };
 ```
 
-The `createComment` function creates an Action which contains an Action Type (`CREATE_COMMENT`) and comment data. It calls `handleAction` on the Dispatcher and passes along the Action.
+The `createComment` function builds an Action which contains an Action Type and comment data. This Action is passed to the Dispatcher's `dispatch` function.
 
-Building this Action Creator give us a centralised place for sending comment related Actions to the Dispatcher.
+Let's build the Dispatcher to accept Actions.
 
-Let's build the Dispatcher to accept Actions and send them to all Stores.
+*Note: We could write this code in the View - communicating with the Dispatcher directly. However, it's best practice to use an Action Creator. It decouples our concerns and provides an single interface for the Dispatcher.*
 
 ---
 
@@ -138,25 +140,13 @@ Under the `dispatcher` directory, create and implement the following `app-dispat
 
 ``` js
 var Dispatcher = require('flux').Dispatcher;
-var assign = require('object-assign');
 
-var AppDispatcher = assign(new Dispatcher(), {
-
-  handleAction: function(action) {
-    this.dispatch({
-      action: action
-    });
-  }
-});
-
-module.exports = AppDispatcher;
+module.exports = new Dispatcher();
 ```
 
-A new Dispatcher instance (from the Flux library) is merged with an object that implements the `handleAction` function. *This uses an* `assign` *[helper function](https://github.com/sindresorhus/object-assign) which merges objects.*
+A new Dispatcher instance (from the Flux library) is created and exported. This implements the `dispatch` function to accept an Action and pass it to **all** callbacks. It's the Stores which register these callbacks with the Dispatcher.
 
-The `handleAction` function calls `dispatch` passing in the supplied Action. *The* `dispatch`* function is implemented via the* `new Dispatcher()` *object.*
-
-The `dispatch` function sends its argument to nothing at this point. Stores need to register interest with the Dispatcher first.
+*Since the Dispatcher implementation is behind the scenes here's a [link to the source](https://github.com/facebook/flux/blob/master/src/Dispatcher.js#L181).*
 
 ---
 
