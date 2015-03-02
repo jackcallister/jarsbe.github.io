@@ -248,3 +248,5 @@ There are some great videos worth watching too. Pete Hunt talks about [re-thinki
 This guide doesn't go into detail about your local environment setup. The official documentation should help, or alternatively, look at my [boilerplate](https://github.com/jarsbe/react-webpack-boilerplate) for a simple solution.
 
 If I've made a mistake or something's not working for you, ping me on [twitter](http://twitter.com/jarsbe) or better yet make a [pull request](https://github.com/jarsbe/jarsbe.github.io/blob/master/_posts/2015-01-05-the-react-quick-start-guide.markdown). Feel free to email me with questions - I'm happy to help.
+
+P.S - Checkout [The Flux Quick Start Guide](http://www.jackcallister.com/2015/02/26/the-flux-quick-start-guide.html) once you're ready to build larger applications with React.
