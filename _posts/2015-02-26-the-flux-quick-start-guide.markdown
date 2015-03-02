@@ -41,7 +41,7 @@ The **Dispatcher** receives new data and passes it to the Stores. Stores update 
 
 There's quite a lot to absorb at once. I highly suggest following along with the the <a href="https://github.com/jarsbe/flux-starter-kit" target="_blank">starter kit</a> and typing out each line to achieve the best comprehension.
 
-*Disclaimer: Use of constants and Web Utils is omitted and the Dispatcher has been simplified compared to most other guides. This makes understanding Flux simpler and once you've grokked the pattern reading the [official examples](https://github.com/facebook/flux/tree/master/examples) will fill in these secondary concepts.*
+*Disclaimer: Use of constants and Web Utils is omitted. This makes understanding Flux simpler and once you've grokked the pattern reading the [official examples](https://github.com/facebook/flux/tree/master/examples) will fill in these secondary concepts.*
 
 ## Views
 
@@ -146,7 +146,7 @@ module.exports = new Dispatcher();
 
 A new Dispatcher instance (from the Flux library) is created and exported. This implements the `dispatch` function to accept an Action and pass it to **all** callbacks. It's the Stores which register these callbacks with the Dispatcher.
 
-*Since the Dispatcher implementation is behind the scenes here's a [link to the source](https://github.com/facebook/flux/blob/master/src/Dispatcher.js#L181).*
+*Since the Dispatcher implementation is hidden, here's a [link to the source](https://github.com/facebook/flux/blob/master/src/Dispatcher.js#L181).*
 
 ---
 
@@ -181,10 +181,9 @@ var CommentStore = assign({}, EventEmitter.prototype, {
   }
 });
 
-AppDispatcher.register(function(payload) {
-  var action = payload.action;
+AppDispatcher.register(function(action) {
 
-  switch(action.type) {
+  switch(action.actionType) {
 
     case "CREATE_COMMENT":
       comments.push(action.comment);
@@ -204,7 +203,7 @@ The Store is created by merging an `EventEmitter.prototype` object and a custom 
 
 The custom object defines public functions for subscribing and unsubscribing to `change` events. It also defines a `getAll` function which returns the `comments` data.
 
-Next, the Store registers a function with the Dispatcher. When the Dispatcher calls `dispatch` it passes its argument to each registered function.
+Next, the Store registers a function with the Dispatcher. When the Dispatcher calls `dispatch` it passes its argument, which is an Action, to each registered callback function.
 
 In this instance, when an Action is dispatched with an Action Type of `CREATE_COMMENT`, the `CommentStore` will push the data into its comment array and invoke the `emitChange` function.
 
