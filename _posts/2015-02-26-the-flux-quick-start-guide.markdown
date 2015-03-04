@@ -144,7 +144,7 @@ var Dispatcher = require('flux').Dispatcher;
 module.exports = new Dispatcher();
 ```
 
-A new Dispatcher instance (from the Flux library) is created and exported. This implements the `dispatch` function to accept an Action and pass it to **all** callbacks. It's the Stores which register these callbacks with the Dispatcher.
+A single Dispatcher from the Flux library provides the `dispatch` function. Receieved Actions are passed to all of registered callbacks. These callbacks are provided from the Stores.
 
 *Note: Since the Dispatcher implementation is hidden, here's a [link to the source](https://github.com/facebook/flux/blob/master/src/Dispatcher.js#L181).*
 
