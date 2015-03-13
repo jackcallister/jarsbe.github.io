@@ -130,7 +130,7 @@ The `createComment` function builds an Action which contains an Action Type and 
 
 Let's build the Dispatcher to accept Actions.
 
-*Note: We could write this code in the View - communicating with the Dispatcher directly. However, it's best practice to use an Action Creator. It decouples our concerns and provides an single interface for the Dispatcher.*
+*Note: We could write this code in the View - communicating with the Dispatcher directly. However, it's best practice to use an Action Creator. It decouples our concerns and provides a single interface for the Dispatcher.*
 
 ---
 
@@ -144,7 +144,7 @@ var Dispatcher = require('flux').Dispatcher;
 module.exports = new Dispatcher();
 ```
 
-A single Dispatcher from the Flux library provides the `dispatch` function. Receieved Actions are passed to all of registered callbacks. These callbacks are provided from the Stores.
+A single Dispatcher from the Flux library provides the `dispatch` function. Received Actions are passed to all of the registered callbacks. These callbacks are provided from the Stores.
 
 *Note: Since the Dispatcher implementation is hidden, here's a [link to the source](https://github.com/facebook/flux/blob/master/src/Dispatcher.js#L181).*
 
