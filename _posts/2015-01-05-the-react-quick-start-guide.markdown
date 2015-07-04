@@ -202,7 +202,7 @@ var PhotoGallery = React.createClass({
   render: function() {
 
     var photos = this.props.photos.map(function(photo) {
-      return <Photo src={photo.url} caption={photo.caption} />
+      return <Photo imageURL={photo.url} caption={photo.caption} />
     });
 
     return (
