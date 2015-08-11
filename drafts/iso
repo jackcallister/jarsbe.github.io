@@ -1,0 +1,24 @@
+---
+layout: post
+title: The Isomporphic Quick Start Guide
+---
+
+>*This article will give you an overview of how to build JavaScript applications that are isomorphic, or server-side renderable. You should follow along with the accompanying <a href="https://github.com/jarsbe/flux-starter-kit" target="_blank">starter kit</a>. You'll need a basic understanding of React and Flux preferably with some Node experience and ideally knowledge of Redux.*
+
+---
+
+## Concepts
+
+There are three obsticals to overcome when producing an isomorphic application. Data fetching on the server and client, sending data from the server to the client on the initial render and initialising your Flux architecture with the correct data. The later issue is essentially dealt with thanks to the latest Flux libraries.
+
+## How
+
+An HTTP request from the browser is made to your Node application. Node takes the request, fetches any data needed, passes this data to your Flux implementation then renders the React application to as a string. Your application string is passed to a template and interpolated. Your application data is also passed to the template and embedded either in the HTML or attached to the window object as a JSON string. The interpolated template is sent down to the browser and a fully rendered user interface is instantly presented to the user.
+
+At this point the browser will request the JavaScript application bundle, this initialises your Flux application with the data embedded in the HTML or attached to the window. React calls render with the application which causes a diff against the current DOM, they match so React does NOT re-render anything, but it is ready to handle interactions by the user!
+
+## Why
+
+## Example
+
+## Example with Routing
