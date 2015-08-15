@@ -1,0 +1,53 @@
+.revue {
+  margin-top: 1em;
+
+  @media all and (min-width: 640px) {
+    @include flexbox;
+    @include justify-content(space-between);
+    @include align-items(center);
+  }
+}
+
+#revue-embed {
+
+  @media all and (min-width: 640px) {
+    margin-left: 2em;
+  }
+
+  .revue-form-group, .revue-form-actions {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+
+    input {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      display: block;
+      padding: 1em;
+    }
+  }
+
+  .revue-form-group {
+    input {
+      margin-bottom: 1em;
+    }
+  }
+
+  .revue-form-actions {
+    input {
+      padding: 0.6em;
+      background: $blue;
+      border: 0;
+      color: white;
+      font-size: 0.8em;
+      font-family: "calluna", serif;
+
+      &:hover {
+        cursor: pointer;
+        background: darken($blue, 10%);
+      }
+    }
+  }
+}
