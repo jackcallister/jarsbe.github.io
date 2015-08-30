@@ -12,7 +12,7 @@ title: 'The React Quick Start Guide: ES6 Edition'
 
 >*
 
->*This article is the ES6 edition of the original [React Quick Start Guide](http://www.jackcallister.com/2015/01/05/the-react-quick-start-guide.html) will give you a quick overview of how to build user interfaces in React JS. There's just enough to get yourself started and nothing more. Code along with this [starter kit](https://github.com/jarsbe/react-starter-kit) (instructions in the repo) or just read along. Update: There's now a [Portuguese translation](http://hugobessa.com.br/posts/comecando-com-react/) thanks to [Hugo Bessa](https://twitter.com/hugoBessaa).*
+>*This article is the ES6 edition of the original [React Quick Start Guide](http://www.jackcallister.com/2015/01/05/the-react-quick-start-guide.html). Babel, a JavaScript compiler, combined with React will enable you to write modern, understandable and maintainable user interface code. There's just enough to get yourself started and nothing more. Code along with this [starter kit](https://github.com/jarsbe/react-starter-kit) (instructions in the repo) or just read along.
 
 ---
 
