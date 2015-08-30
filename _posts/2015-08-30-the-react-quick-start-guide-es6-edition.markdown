@@ -10,9 +10,7 @@ title: 'The React Quick Start Guide: ES6 Edition'
   <div class="circle"></div>
 </div>
 
->*
-
->*This article is the ES6 edition of the original [React Quick Start Guide](http://www.jackcallister.com/2015/01/05/the-react-quick-start-guide.html). Babel, a JavaScript compiler, combined with React will enable you to write modern, understandable and maintainable user interface code. There's just enough to get yourself started and nothing more. Code along with this [starter kit](https://github.com/jarsbe/react-starter-kit) (instructions in the repo) or just read along.
+>*This article is the ES6 edition of the original [React Quick Start Guide](http://www.jackcallister.com/2015/01/05/the-react-quick-start-guide.html). Babel, a JavaScript compiler, combined with React will enable you to write modern, understandable and maintainable user interface code. There's just enough to get yourself started and nothing more. Code along with this [starter kit](https://github.com/jarsbe/react-starter-kit-es6) (instructions in the repo) or just read along.*
 
 ---
 
@@ -37,9 +35,10 @@ With a small understanding of these concepts we can move on to using React. We'l
 The first order of business is rendering a virtual element (a React element or component). Remember, since a virtual element exists only in JavaScript memory, we must explicitly tell React to render it to the browser DOM.
 
 ``` js
-React.render(<img src='http://tinyurl.com/lkevsb9' />, document.body);
+React.render(<img src='http://tinyurl.com/lkevsb9' />, document.getElementById('app'));
 ```
-<a target="_blank" href="http://jsbin.com/detime/6/edit">View JSBin</a>
+
+<a target="_blank" href="https://jsbin.com/mireve/edit?js,output">View JSBin</a>
 
 The `render` function accepts two arguments; a virtual element and a real DOM node. React takes the virtual element and inserts it into the given DOM node. The image is now visible in the browser.
 
@@ -50,20 +49,20 @@ The `render` function accepts two arguments; a virtual element and a real DOM no
 Components are the heart and soul of React. They are custom React elements. They are usually extended with unique functionality and structure.
 
 ``` js
-var Photo = React.createClass({
+class Photo extends React.Component {
 
-  render: function() {
+  render() {
     return <img src='http://tinyurl.com/lkevsb9' />
   }
-});
+}
 
-React.render(<Photo />, document.body);
+React.render(<Photo />, document.getElementById('app'));
 ```
-<a target="_blank" href="http://jsbin.com/detime/7/edit">View JSBin</a>
+<a target="_blank" href="https://jsbin.com/qanopi/4/edit?js,output">View JSBin</a>
 
-The `createClass` function accepts an object which implements a `render` function.
+A `Photo` class is defined as a subclass of the React Component class. It has a single `render` function which returns a React image element.
 
-The `Photo` component is constructed, `<Photo />`, and rendered to the document body.
+The `Photo` component is constructed, `<Photo />`, and rendered to the application div.
 
 This component does nothing more than the previous React image element but it's ready to be extended with custom functionality and structure.
 
@@ -74,21 +73,21 @@ This component does nothing more than the previous React image element but it's 
 Props can be thought of as a component's options. They're given as arguments to a component and look exactly like HTML attributes.
 
 ``` js
-var Photo = React.createClass({
+class Photo extends React.Component {
 
-  render: function() {
+  render() {
     return (
       <div className='photo'>
-        <img src={this.props.imageURL} />
+        <img src={this.props.src} />
         <span>{this.props.caption}</span>
       </div>
-    );
+    )
   }
-});
+}
 
-React.render(<Photo imageURL='http://tinyurl.com/lkevsb9' caption='Hong Kong!' />, document.body);
+React.render(<Photo src='http://tinyurl.com/lkevsb9' caption='Hong Kong!' />, document.getElementById('app'));
 ```
-<a target="_blank" href="http://jsbin.com/detime/8/edit">View JSBin</a>
+<a target="_blank" href="https://jsbin.com/meqaqi/5/edit?js,output">View JSBin</a>
 
 Inside the React `render` function, two props are passed to the `Photo` component; `imageURL` and `caption`.
 
@@ -103,51 +102,55 @@ It's worth noting that a component should never change its props, they're immuta
 The state object is internal to a component. It holds data which can change over time.
 
 ``` js
-var Photo = React.createClass({
+class Photo extends React.Component {
 
-  toggleLiked: function() {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      liked: false
+    }
+  }
+
+  toggleLiked() {
     this.setState({
       liked: !this.state.liked
     });
-  },
+  }
 
-  getInitialState: function() {
-    return {
-      liked: false
-    };
-  },
-
-  render: function() {
-    var buttonClass = this.state.liked ? 'active' : '';
+  render() {
+    const buttonClass = this.state.liked ? 'active' : '';
 
     return (
       <div className='photo'>
         <img src={this.props.src} />
 
         <div className='bar'>
-          <button onClick={this.toggleLiked} className={buttonClass}>
+          <button onClick={(e) => {this.toggleLiked(e)}} className={buttonClass}>
             ♥
           </button>
           <span>{this.props.caption}</span>
         </div>
       </div>
-    );
+    )
   }
-});
+}
 
-React.render(<Photo src='http://tinyurl.com/lkevsb9' caption='Hong Kong!'/>, document.body);
+React.render(<Photo src='http://tinyurl.com/lkevsb9' caption='Hong Kong!' />, document.getElementById('app'));
 ```
-<a target="_blank" href="http://jsbin.com/detime/3/edit">View JSBin</a>
+<a target="_blank" href="https://jsbin.com/vuhize/3/edit?js,output">View JSBin</a>
 
 Having state in a component introduces a bit more complexity.
 
-The component has a new function `getInitialState`. React calls this function when the component is initialised. The returned object is set as the component's initial state (as the function name implies).
+The component class has a `constructor` function which is called when the component is initialised. During this initialising the component state is set. In this case `liked` is set to false.
+
+*Note: The super function must be called (with the props argument) for React to prepare the class for rendering.*
 
 The component has another new function `toggleLiked`. This function calls `setState` on the component which toggles the `liked` value.
 
 Within the component's render function a variable `buttonClass` is assigned either 'active' or nothing - depending on the `liked` state.
 
-`buttonClass` is used as a class name on the React button element. The button also has an `onClick` event handler set to the `toggleLiked` function.
+`buttonClass` is used as a class name on the React button element. The button also has an `onClick` event handler set to the `toggleLiked` function. The `onClick` handler uses an ES6 arrow syntax which is shorthand for `function(e) { return this.toggleLiked(e)}`.
 
 Here's what happens when the component is rendered to the browser DOM:
 
@@ -166,43 +169,46 @@ In this case, React will change the class name on the button.
 Composition means combining smaller components to form a larger whole. For example the `Photo` component could be used inside a `PhotoGallery` component, like so:
 
 ``` js
-var Photo = React.createClass({
+class Photo extends React.Component {
 
-  toggleLiked: function() {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      liked: false
+    }
+  }
+
+  toggleLiked() {
     this.setState({
       liked: !this.state.liked
     });
-  },
+  }
 
-  getInitialState: function() {
-    return {
-      liked: false
-    };
-  },
+  render() {
 
-  render: function() {
-    var buttonClass = this.state.liked ? 'active' : '';
+    const buttonClass = this.state.liked ? 'active' : '';
 
     return (
       <div className='photo'>
         <img src={this.props.src} />
 
         <div className='bar'>
-          <button onClick={this.toggleLiked} className={buttonClass}>
+          <button onClick={(e) => {this.toggleLiked(e)}} className={buttonClass}>
             ♥
           </button>
           <span>{this.props.caption}</span>
         </div>
       </div>
-    );
+    )
   }
-});
+}
 
-var PhotoGallery = React.createClass({
+class PhotoGallery extends React.Component {
 
-  render: function() {
+  render() {
 
-    var photos = this.props.photos.map(function(photo) {
+    const photos = this.props.photos.map((photo) => {
       return <Photo src={photo.url} caption={photo.caption} />
     });
 
@@ -212,9 +218,9 @@ var PhotoGallery = React.createClass({
       </div>
     );
   }
-});
+};
 
-var data = [
+const data = [
   {
     url: 'http://tinyurl.com/lkevsb9',
     caption: 'Hong Kong!'
@@ -229,10 +235,10 @@ var data = [
   }
 ];
 
-React.render(<PhotoGallery photos={data} />, document.body);
+React.render(<PhotoGallery photos={data} />, document.getElementById('app'));
 ```
 
-<a target="_blank" href="http://jsbin.com/detime/10/edit">View JSBin</a>
+<a target="_blank" href="https://jsbin.com/xujiro/3/edit?js,output">View JSBin</a>
 
 The `Photo` component is exactly the same as before.
 
