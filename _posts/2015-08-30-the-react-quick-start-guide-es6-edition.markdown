@@ -10,7 +10,7 @@ title: 'The React Quick Start Guide: ES6 Edition'
   <div class="circle"></div>
 </div>
 
->*This article is the ES6 edition of the original [React Quick Start Guide](http://www.jackcallister.com/2015/01/05/the-react-quick-start-guide.html). Babel, a JavaScript compiler, combined with React will enable you to write modern, understandable and maintainable user interface code. There's just enough to get yourself started and nothing more. Code along with this [starter kit](https://github.com/jarsbe/react-starter-kit-es6) (instructions in the repo) or just read along.*
+>*This article is the ES6 edition of the original [React Quick Start Guide](http://www.jackcallister.com/2015/01/05/the-react-quick-start-guide.html). Babel, a JavaScript compiler, combined with React will enable you to write modern, understandable and maintainable user interface code. There's just enough to get yourself started and nothing more. Code along with this <a targe="_blank" href="https://github.com/jarsbe/react-starter-kit-es6">starter kit</a> (instructions in the repo) or just read along.*
 
 ---
 
@@ -252,8 +252,10 @@ This should be enough to get started building user interfaces with React. The [R
 
 There are some great videos worth watching too. Pete Hunt talks about [re-thinking web application architecture](https://www.youtube.com/watch?v=x7cQ3mrcKaY) with React and Tom Occhino introduces [React Native](https://www.youtube.com/watch?v=KVZ-P-ZI6W4) for building native mobile applications with React (WIP).
 
+If ES6 is new to you take a look at the guide on the [Babel website](https://babeljs.io/docs/learn-es2015/) and be sure to try out the REPL.
+
 This guide doesn't go into detail about your local environment setup. The official documentation should help, or alternatively, look at my [boilerplate](https://github.com/jarsbe/react-webpack-boilerplate) for a simple solution.
 
-If I've made a mistake or something's not working for you, ping me on [twitter](http://twitter.com/jarsbe) or better yet make a [pull request](https://github.com/jarsbe/jarsbe.github.io/blob/master/_posts/2015-01-05-the-react-quick-start-guide.markdown). Feel free to email me with questions - I'm happy to help.
+If I've made a mistake or something's not working for you, ping me on [twitter](http://twitter.com/jarsbe) or better yet make a [pull request](https://github.com/jarsbe/jarsbe.github.io/blob/master/_posts/2015-08-30-the-react-quick-start-guide-es6-edition.markdown). Feel free to email me with questions or find me on the Reactiflux Slack channel (@jarsbe) - I'm happy to help.
 
 P.S - Checkout [The Flux Quick Start Guide](http://www.jackcallister.com/2015/02/26/the-flux-quick-start-guide.html) once you're ready to build larger applications with React.
