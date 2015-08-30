@@ -254,7 +254,7 @@ There are some great videos worth watching too. Pete Hunt talks about [re-thinki
 
 If ES6 is new to you take a look at the guide on the [Babel website](https://babeljs.io/docs/learn-es2015/) and be sure to try out the REPL.
 
-This guide doesn't go into detail about your local environment setup. The official documentation should help, or alternatively, look at my [boilerplate](https://github.com/jarsbe/react-webpack-boilerplate) for a simple solution.
+This guide doesn't go into detail about your local environment setup. The official documentation should help, or alternatively, look at my [boilerplate](https://github.com/jarsbe/react-babel-webpack-boilerplate) for a simple solution.
 
 If I've made a mistake or something's not working for you, ping me on [twitter](http://twitter.com/jarsbe) or better yet make a [pull request](https://github.com/jarsbe/jarsbe.github.io/blob/master/_posts/2015-08-30-the-react-quick-start-guide-es6-edition.markdown). Feel free to email me with questions or find me on the Reactiflux Slack channel (@jarsbe) - I'm happy to help.
 
