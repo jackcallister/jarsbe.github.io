@@ -84,6 +84,8 @@ header .logo-mask {
   color: white;
   font-size: 0.8em;
   font-family: "calluna", serif;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .submit:hover {
