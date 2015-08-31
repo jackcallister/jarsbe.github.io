@@ -1,0 +1,103 @@
+---
+---
+@import 'mixins/flex';
+@import 'config/colours';
+@import 'base/reset';
+@import 'base/typography';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, main {
+  height: 100%;
+}
+
+main {
+  @include flexbox;
+  @include flex-direction(column);
+}
+
+.column {
+  margin: 2em auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.center > div {
+  margin: 0 auto;
+}
+
+header {
+  padding: 1em 2em 2em 2em;
+  background: url('/assets/images/background.png');
+}
+
+header h1 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-size: 2em;
+  font-style: italic;
+  color: #FBFBFB;
+}
+
+header h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1em;
+  font-style: italic;
+  color: rgba(45, 45, 45, 0.8);
+}
+
+header .column {
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+header .logo-mask {
+  margin-bottom: 1em;
+}
+
+.logo-mask {
+  width: 112px;
+  height: 112px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.logo {
+  width: 112px;
+  height: 112px;
+  background-image: url('/assets/images/logo.png');
+  background-size: cover;
+}
+
+.email, .submit {
+  display: block;
+  width: 200px;
+  padding: 0;
+}
+
+.email {
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+.submit {
+  background: #5AB7C9;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  color: white;
+  font-size: 0.8em;
+  font-family: "calluna", serif;
+}
+
+.submit:hover {
+  cursor: pointer;
+  background: #399db1;
+}

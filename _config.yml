@@ -3,3 +3,4 @@ markdown: redcarpet
 highligher: true
 sass:
   sass_dir: css
+url: "http://jackcallister.com"
