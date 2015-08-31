@@ -5,19 +5,8 @@
 @import 'base/reset';
 @import 'base/typography';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html, body, main {
   height: 100%;
-}
-
-main {
-  @include flexbox;
-  @include flex-direction(column);
 }
 
 .column {
@@ -78,7 +67,7 @@ header .logo-mask {
 
 .email, .submit {
   display: block;
-  width: 200px;
+  width: 100%;
   padding: 0;
 }
 
@@ -100,4 +89,9 @@ header .logo-mask {
 .submit:hover {
   cursor: pointer;
   background: #399db1;
+}
+
+form {
+  width: 200px;
+  margin: 0 auto;
 }
