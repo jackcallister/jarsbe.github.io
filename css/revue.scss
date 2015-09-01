@@ -23,7 +23,7 @@ html, body, main {
 
 .page-wrap {
   min-height: 100%;
-  margin-bottom: -142px;
+  margin-bottom: -60px;
 }
 
 .page-wrap:after {
@@ -32,7 +32,7 @@ html, body, main {
 }
 
 footer, .page-wrap:after {
-  height: 54px;
+  height: 36px;
 }
 
 header {
@@ -109,15 +109,16 @@ header .logo-mask {
   }
 }
 
-#revue-embed {
-  margin-bottom: 6em;
-}
-
 form {
   width: 200px;
   margin: 0 auto;
 }
 
+footer.column {
+  margin: 0;
+}
+
 footer p {
+  margin: 0;
   padding: 0 1em;
 }
