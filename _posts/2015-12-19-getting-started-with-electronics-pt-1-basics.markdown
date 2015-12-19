@@ -3,7 +3,7 @@ layout: post
 title: "Getting Started With Electronics: Pt. 1 - Basics"
 ---
 
->*As I've started learning physical computing, controlling lights, switches and connecting devices to the networks, I've begun to learn electronics as a necessity. The following is a collection of notes from reading Getting Started In Electronics by Forest M, Mims III. I highly recommend the book with the addition of physically writing down your own notes to understand the material.*
+>*As I've started learning physical computing, controlling lights, switches and connecting devices to networks, I've begun to learn electronics as a necessity. The following is a collection of notes from reading Getting Started In Electronics by Forest M, Mims III. I highly recommend the book with the addition of physically writing down your own notes to understand the material.*
 
 ---
 
