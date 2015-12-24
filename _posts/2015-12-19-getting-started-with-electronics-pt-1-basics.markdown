@@ -27,15 +27,15 @@ Voltage is the amount of electrical pressure. It can be thought of as the force 
 
 Wattage or power is the actual work performed by the electrical current.
 
-Conductors are materials that do not resist the flow of electrons (very much).
-
-All conductors have some resistance. This is measured in Ohms.
+Conductors are materials that do not resist the flow of electrons. All conductors have some resistance and this is measured in Ohms.
 
 ---
 
 ## AC/DC
 
-Current can flow through a circuit in one direction or periodically switch directions, these are called called direct current and alternating current respectively. The direction of current in electronics is called polarity.
+Current can flow through a circuit in one continuos direction. This is called direct current (DC).
+
+Current can also quickly and periodically switch directions. This is known as alternating current (AC).
 
 ---
 
@@ -47,6 +47,6 @@ A simple circuit can send representations of information using patterns of on an
 - A **wave** is a repeating flucuation in a current or a voltage.
 - A **signal** is a periodic waveform that conveys information.
 - **Modulation** is the process that generates a waveform.
-- **Noise** is small random electrical currents entering a circuit.
+- **Noise** is the small random electrical currents entering a circuit.
 
 Next up will be a summary of electronic components, their effects and uses.
