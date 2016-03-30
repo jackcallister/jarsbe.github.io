@@ -1,5 +1,5 @@
 body {
-  max-width: 780px;
+  max-width: 740px;
   margin: 0 auto;
   padding: 0 1rem;
   background-color: $white;
@@ -13,4 +13,10 @@ article {
 footer {
   border-top: 1px solid $light-grey;
   margin-top: 1.5rem;
+}
+
+nav.right-nav {
+  display: block;
+  text-align: right;
+  margin-top: 1em;
 }
