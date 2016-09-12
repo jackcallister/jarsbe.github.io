@@ -35,7 +35,7 @@ With a small understanding of these concepts we can move on to using React. We'l
 The first order of business is rendering a virtual element (a React element or component). Remember, since a virtual element exists only in JavaScript memory, we must explicitly tell React to render it to the browser DOM.
 
 ``` js
-React.render(<img src='http://tinyurl.com/lkevsb9' />, document.getElementById('app'));
+ReactDOM.render(<img src='http://tinyurl.com/lkevsb9' />, document.getElementById('app'));
 ```
 
 <a target="_blank" href="https://jsbin.com/mireve/edit?js,output">View JSBin</a>
@@ -56,7 +56,7 @@ class Photo extends React.Component {
   }
 }
 
-React.render(<Photo />, document.getElementById('app'));
+ReactDOM.render(<Photo />, document.getElementById('app'));
 ```
 <a target="_blank" href="https://jsbin.com/qanopi/4/edit?js,output">View JSBin</a>
 
@@ -85,7 +85,7 @@ class Photo extends React.Component {
   }
 }
 
-React.render(<Photo src='http://tinyurl.com/lkevsb9' caption='Hong Kong!' />, document.getElementById('app'));
+ReactDOM.render(<Photo src='http://tinyurl.com/lkevsb9' caption='Hong Kong!' />, document.getElementById('app'));
 ```
 <a target="_blank" href="https://jsbin.com/meqaqi/5/edit?js,output">View JSBin</a>
 
@@ -136,7 +136,7 @@ class Photo extends React.Component {
   }
 }
 
-React.render(<Photo src='http://tinyurl.com/lkevsb9' caption='Hong Kong!' />, document.getElementById('app'));
+ReactDOM.render(<Photo src='http://tinyurl.com/lkevsb9' caption='Hong Kong!' />, document.getElementById('app'));
 ```
 <a target="_blank" href="https://jsbin.com/vuhize/3/edit?js,output">View JSBin</a>
 
@@ -235,7 +235,7 @@ const data = [
   }
 ];
 
-React.render(<PhotoGallery photos={data} />, document.getElementById('app'));
+ReactDOM.render(<PhotoGallery photos={data} />, document.getElementById('app'));
 ```
 
 <a target="_blank" href="https://jsbin.com/xujiro/3/edit?js,output">View JSBin</a>
