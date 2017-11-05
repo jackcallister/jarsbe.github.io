@@ -35,8 +35,8 @@ With a small understanding of these concepts we can move on to using React. We'l
 
 The first order of business is rendering a virtual element (a React element or component). Remember, since a virtual element exists only in JavaScript memory, we must explicitly tell React to render it to the browser DOM.
 
-``` js
-React.render(<img src='http://tinyurl.com/lkevsb9' />, document.body);
+``` jsx
+ReactDOM.render(<img src='https://source.unsplash.com/400x300/?nature,water' />, document.body);
 ```
 <a target="_blank" href="http://jsbin.com/detime/6/edit">View JSBin</a>
 
@@ -48,15 +48,15 @@ The `render` function accepts two arguments; a virtual element and a real DOM no
 
 Components are the heart and soul of React. They are custom React elements. They are usually extended with unique functionality and structure.
 
-``` js
-var Photo = React.createClass({
+``` jsx
+class Photo extends React.Component {
 
-  render: function() {
-    return <img src='http://tinyurl.com/lkevsb9' />
+  render() {
+    return <img src='https://source.unsplash.com/400x300/nature,water' />
+    }
   }
-});
 
-React.render(<Photo />, document.body);
+ReactDOM.render(<Photo />, document.body);
 ```
 <a target="_blank" href="http://jsbin.com/detime/7/edit?js,output">View JSBin</a>
 
@@ -72,10 +72,9 @@ This component does nothing more than the previous React image element but it's 
 
 Props can be thought of as a component's options. They're given as arguments to a component and look exactly like HTML attributes.
 
-``` js
-var Photo = React.createClass({
-
-  render: function() {
+``` jsx
+class Photo extends React.Component {
+  render() {
     return (
       <div className='photo'>
         <img src={this.props.src} />
@@ -83,9 +82,10 @@ var Photo = React.createClass({
       </div>
     );
   }
-});
+}
 
-React.render(<Photo src='http://tinyurl.com/lkevsb9' caption='Hong Kong!' />, document.body);
+ReactDOM.render(<Photo src='https://source.unsplash.com/400x300/?city,hongkong' caption='Hong Kong!' />, document.body);
+
 ```
 <a target="_blank" href="http://jsbin.com/detime/13/edit?js,output">View JSBin</a>
 
@@ -101,40 +101,36 @@ It's worth noting that a component should never change its props, they're immuta
 
 The state object is internal to a component. It holds data which can change over time.
 
-``` js
-var Photo = React.createClass({
+``` jsx
+class Photo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {liked: false};
+  }
 
-  toggleLiked: function() {
-    this.setState({
-      liked: !this.state.liked
-    });
-  },
+  toggleLiked = () => {
+    this.setState({liked: !this.state.liked});
+  }
 
-  getInitialState: function() {
-    return {
-      liked: false
-    };
-  },
-
-  render: function() {
-    var buttonClass = this.state.liked ? 'active' : '';
-
+  render() {
+    let buttonClass = this.state.liked ? 'active' : '';
     return (
       <div className='photo'>
         <img src={this.props.src} />
-
+        
         <div className='bar'>
           <button onClick={this.toggleLiked} className={buttonClass}>
             ♥
           </button>
-          <span>{this.props.caption}</span>
         </div>
+        
+        <span>{this.props.caption}</span>
       </div>
     );
   }
-});
+}
 
-React.render(<Photo src='http://tinyurl.com/lkevsb9' caption='Hong Kong!'/>, document.body);
+ReactDOM.render(<Photo src='https://source.unsplash.com/400x300/?city,hongkong' caption='Hong Kong!'/>, document.body);
 ```
 <a target="_blank" href="https://jsbin.com/detime/3/edit?js,output">View JSBin</a>
 
@@ -164,71 +160,64 @@ In this case, React will change the class name on the button.
 
 Composition means combining smaller components to form a larger whole. For example the `Photo` component could be used inside a `PhotoGallery` component, like so:
 
-``` js
-var Photo = React.createClass({
+``` jsx
+class Photo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {liked: false};
+  }
 
-  toggleLiked: function() {
-    this.setState({
-      liked: !this.state.liked
-    });
-  },
+  toggleLiked = () => {
+    this.setState({liked: !this.state.liked});
+  }
 
-  getInitialState: function() {
-    return {
-      liked: false
-    };
-  },
-
-  render: function() {
-    var buttonClass = this.state.liked ? 'active' : '';
-
+  render() {
+    let buttonClass = this.state.liked ? 'active' : '';
     return (
       <div className='photo'>
         <img src={this.props.src} />
-
+        
         <div className='bar'>
           <button onClick={this.toggleLiked} className={buttonClass}>
             ♥
           </button>
-          <span>{this.props.caption}</span>
         </div>
+        
+        <span>{this.props.caption}</span>
       </div>
     );
   }
-});
+}
 
-var PhotoGallery = React.createClass({
-
-  render: function() {
-
-    var photos = this.props.photos.map(function(photo) {
-      return <Photo src={photo.url} caption={photo.caption} />
-    });
-
-    return (
+class PhotoGallery extends React.Component {
+  
+  render() {
+    let photos = this.props.photos.map(photo => {return <Photo src={photo.url} caption={photo.caption}/>});
+    
+    return(
       <div className='photo-gallery'>
         {photos}
       </div>
     );
   }
-});
-
-var data = [
+}
+  
+const data = [
   {
-    url: 'http://tinyurl.com/lkevsb9',
-    caption: 'Hong Kong!'
+    url: 'https://source.unsplash.com/300x300/?water',
+    caption: 'Cold'
   },
   {
-    url: 'http://tinyurl.com/mxkwh56',
-    caption: 'Cows'
+    url: 'https://source.unsplash.com/300x300/?earth',
+    caption: 'Regular'
   },
   {
-    url: 'http://tinyurl.com/nc7jv28',
-    caption: 'Scooters'
+    url: 'https://source.unsplash.com/300x300/?fire',
+    caption: 'Hot'
   }
 ];
 
-React.render(<PhotoGallery photos={data} />, document.body);
+ReactDOM.render(<PhotoGallery photos={data}/>, document.getElementById('root'));
 ```
 
 <a target="_blank" href="https://jsbin.com/detime/10/edit?js,output">View JSBin</a>
